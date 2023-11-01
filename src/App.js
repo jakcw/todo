@@ -1,6 +1,8 @@
 import './App.css';
+import Input from './Input';
 import { useState } from 'react';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import AddIcon from '@mui/icons-material/Add';
 import Checkbox from '@mui/material/Checkbox';
 
 
@@ -9,7 +11,6 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [editingIndex, setEditingIndex] = useState(null);
-  const [checked, setChecked] = useState(true);
 
 
   const addTask = (event) => {
@@ -17,6 +18,10 @@ function App() {
     if (inputValue !== "") {
       setTasks([...tasks, inputValue]);
     }
+    else {
+      
+    }
+    setInputValue('');
   }
 
   const removeTask = (index) => {
@@ -39,10 +44,14 @@ function App() {
       <div class="todo-container">
         <div class="todo-add">
           <form>
-            <input value={inputValue}
+            <Input value={inputValue}
               onChange={handleInputChange}
             />
-            <button onClick={addTask}>+</button>
+            <AddIcon onClick={addTask} sx={{cursor: 'pointer',  
+            transition: 'transform 0.1s',
+            '&:hover': {
+              transform: 'scale(1.1)',
+            }}}/>
           </form>
         </div>
         <ul className="tasks">
