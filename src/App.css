@@ -9,39 +9,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   min-height: 100vh; /* Ensures full height of viewport */
   margin: 0; /* Removes default margin */
+
 }
 
-.todo-container {
-  padding: 40px;
+.todo-add {
   background-color: #f8f8f8; /* Box color */
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  padding: 15px;
   border-radius: 10px; /* Optional: to have rounded corners */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: to add a subtle shadow */
+  box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.3); /* Optional: to add a subtle shadow */
+  margin-bottom: 20px;
 }
 
 form {
   display: flex;
+  align-items: center;
   gap: 10px;
-  margin-bottom: 50px;
 }
-
 
 .tasks {
   list-style: none;
   padding: 0;
   margin: 0;
+  padding: 40px;
+  background-color: #f8f8f8; /* Box color */
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px; /* Optional: to have rounded corners */
+  box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.3); /* Optional: to add a subtle shadow */
 }
 
 .task-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px;
+  height: 25px;
+  width: 100%;
   background-color: #f8f8f8;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -53,13 +62,8 @@ form {
   margin-left: 10px;
 }
 
-.task-content {
-  flex-grow: 1;
-}
-
 .task-input,
 .task-text {
-  width: 100%;
   border: none;
   background: transparent;
   font-size: 16px;
@@ -73,6 +77,13 @@ form {
 .task-text {
   padding: 5px;
   cursor: pointer;
+  display: inline-block;
+  width: 158px;
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
 }
 
 .task-text:hover {
@@ -95,5 +106,6 @@ form {
 }
 
 .delete-button:hover {
-  background-color: #ff7878;
+  transform: scale(1.05);
+  transition: 0.2s;
 }
